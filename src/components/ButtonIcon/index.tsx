@@ -10,9 +10,9 @@ import { styles } from "./styles";
 
 import DiscordImg from "../../assets/discord.png";
 
-interface Props extends TouchableOpacityProps {
+type Props = TouchableOpacityProps & {
   title: string;
-}
+};
 
 export function ButtonIcon({ title, ...rest }: Props) {
   return (
