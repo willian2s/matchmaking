@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   content: {
     width: 100,
     height: 116,
-    backgroundColor: theme.colors.secondary80,
+    backgroundColor: theme.colors.secondary40,
     borderRadius: 8,
     justifyContent: "space-between",
     alignItems: "center",
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginRight: 7,
     borderColor: theme.colors.secondary50,
-    borderWidth: 3,
+    borderWidth: 2,
     borderRadius: 3,
   },
   checked: {

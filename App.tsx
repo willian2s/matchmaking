@@ -21,11 +21,12 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
+
   return (
     <Background>
       <StatusBar
-        backgroundColor="transparent"
         barStyle="light-content"
+        backgroundColor="transparent"
         translucent
       />
       <Routes />
