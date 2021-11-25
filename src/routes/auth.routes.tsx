@@ -6,7 +6,13 @@ import { AppointmentDetails } from "../screens/AppointmentDetails";
 import { AppointmentCreate } from "../screens/AppointmentCreate";
 import { theme } from "../global/styles/theme";
 
-const { Navigator, Screen } = createNativeStackNavigator();
+type AuthStackParamList = {
+  Home: undefined;
+  AppointmentDetails: undefined;
+  AppointmentCreate: undefined;
+};
+
+const { Navigator, Screen } = createNativeStackNavigator<AuthStackParamList>();
 
 export function AuthRoutes() {
   return (

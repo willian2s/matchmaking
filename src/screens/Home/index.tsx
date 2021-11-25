@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { View, FlatList } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import {
+  CompositeNavigationProp,
+  useNavigation,
+} from "@react-navigation/native";
 import { Background } from "../../components/Background";
 import { CategorySelect } from "../../components/CategorySelect";
 import { Appointment } from "../../components/Appointment";
@@ -10,9 +13,11 @@ import { ButtonAdd } from "../../components/ButtonAdd";
 import { Profile } from "../../components/Profile";
 import { styles } from "./styles";
 
+type HomeScreenNavigationProp = CompositeNavigationProp<any, any>;
+
 export function Home() {
   const [category, setCategory] = useState("");
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const appointments = [
     {
