@@ -1,6 +1,6 @@
-import * as axios from "axios";
+import * as axios from 'axios';
 
-declare module "axios" {
+declare module 'axios' {
   export interface HeadersDefaults {
     common: AxiosRequestHeaders;
     delete: AxiosRequestHeaders;
@@ -17,7 +17,7 @@ declare module "axios" {
   }
 
   export interface AxiosDefaults<D = any>
-    extends Omit<AxiosRequestConfig<D>, "headers"> {
+    extends Omit<AxiosRequestConfig<D>, 'headers'> {
     headers: HeadersDefaults;
   }
 }

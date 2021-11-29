@@ -1,9 +1,9 @@
-import React from "react";
-import { View, Text } from "react-native";
-import { theme } from "../../global/styles/theme";
-import { Avatar } from "../Avatar";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { theme } from '../../global/styles/theme';
+import { Avatar } from '../Avatar';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 export type MemberProps = {
   id: string;
@@ -18,7 +18,7 @@ type Props = {
 
 export function Member({ data }: Props) {
   const { on, primary } = theme.colors;
-  const isOnline = data.status === "online";
+  const isOnline = data.status === 'online';
   return (
     <View style={styles.container}>
       <Avatar urlImage={data.avatar_url} />
@@ -32,7 +32,7 @@ export function Member({ data }: Props) {
             ]}
           />
           <Text style={styles.nameStatus}>
-            {isOnline ? "Disponivel" : "Ocupado"}
+            {isOnline ? 'Disponivel' : 'Ocupado'}
           </Text>
         </View>
       </View>

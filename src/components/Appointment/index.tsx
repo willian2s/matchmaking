@@ -1,15 +1,15 @@
-import React from "react";
-import { RectButton, RectButtonProps } from "react-native-gesture-handler";
-import { View, Text } from "react-native";
-import { GuildIcon } from "../GuildIcon";
-import { GuildProps } from "../Guild";
+import React from 'react';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
+import { View, Text } from 'react-native';
+import { GuildIcon } from '../GuildIcon';
+import { GuildProps } from '../Guild';
 
-import { categories } from "../../utils/categories";
-import PlayerSvg from "../../assets/player.svg";
-import CalendarSvg from "../../assets/calendar.svg";
-import { styles } from "./styles";
-import { theme } from "../../global/styles/theme";
-import { LinearGradient } from "expo-linear-gradient";
+import { categories } from '../../utils/categories';
+import PlayerSvg from '../../assets/player.svg';
+import CalendarSvg from '../../assets/calendar.svg';
+import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export type AppointmentProps = {
   id: string;
@@ -33,8 +33,7 @@ export function Appointment({ data, ...rest }: Props) {
       <View style={styles.container}>
         <LinearGradient
           style={styles.guildIconContainer}
-          colors={[secondary50, primary]}
-        >
+          colors={[secondary50, primary]}>
           <GuildIcon />
         </LinearGradient>
 
@@ -56,7 +55,7 @@ export function Appointment({ data, ...rest }: Props) {
               <PlayerSvg fill={owner ? primary : on} />
 
               <Text style={[styles.player, { color: owner ? primary : on }]}>
-                {owner ? "Anfitrião" : "Visitante"}
+                {owner ? 'Anfitrião' : 'Visitante'}
               </Text>
             </View>
           </View>

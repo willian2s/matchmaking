@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 import {
   Text,
   TouchableOpacity,
   TouchableOpacityProps,
   View,
-} from "react-native";
-import { Feather } from "@expo/vector-icons";
+} from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
-import { GuildIcon } from "../GuildIcon";
-import { styles } from "./styles";
-import { theme } from "../../global/styles/theme";
+import { GuildIcon } from '../GuildIcon';
+import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 export type GuildProps = {
   id: string;
@@ -30,7 +30,7 @@ export function Guild({ data, ...rest }: Props) {
         <View>
           <Text style={styles.title}>{data.name}</Text>
           <Text style={styles.type}>
-            {data.owner ? "Adminstrador" : "Convidado"}
+            {data.owner ? 'Adminstrador' : 'Convidado'}
           </Text>
         </View>
       </View>

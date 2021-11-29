@@ -1,30 +1,30 @@
-import React from "react";
-import { FlatList, ImageBackground, Text, View } from "react-native";
-import { BorderlessButton } from "react-native-gesture-handler";
-import { Fontisto } from "@expo/vector-icons";
-import { Background } from "../../components/Background";
-import { Header } from "../../components/Header";
-import { ListHeader } from "../../components/ListHeader";
-import { Member } from "../../components/Member";
-import { ListDivider } from "../../components/ListDivider";
-import { ButtonIcon } from "../../components/ButtonIcon";
-import { theme } from "../../global/styles/theme";
-import { styles } from "./styles";
-import BannerImg from "../../assets/banner.png";
+import React from 'react';
+import { FlatList, ImageBackground, Text, View } from 'react-native';
+import { BorderlessButton } from 'react-native-gesture-handler';
+import { Fontisto } from '@expo/vector-icons';
+import { Background } from '../../components/Background';
+import { Header } from '../../components/Header';
+import { ListHeader } from '../../components/ListHeader';
+import { Member } from '../../components/Member';
+import { ListDivider } from '../../components/ListDivider';
+import { ButtonIcon } from '../../components/ButtonIcon';
+import { theme } from '../../global/styles/theme';
+import { styles } from './styles';
+import BannerImg from '../../assets/banner.png';
 
 export function AppointmentDetails() {
   const members = [
     {
-      id: "1",
-      username: "Willian",
-      avatar_url: "https://github.com/willian2s.png",
-      status: "online",
+      id: '1',
+      username: 'Willian',
+      avatar_url: 'https://github.com/willian2s.png',
+      status: 'online',
     },
     {
-      id: "2",
-      username: "Wilian",
-      avatar_url: "https://github.com/willian2s.png",
-      status: "offline",
+      id: '2',
+      username: 'Wilian',
+      avatar_url: 'https://github.com/willian2s.png',
+      status: 'offline',
     },
   ];
   return (

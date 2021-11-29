@@ -1,16 +1,16 @@
-import { StyleSheet } from "react-native";
-import { theme } from "../../global/styles/theme";
+import { StyleSheet } from 'react-native';
+import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 24,
   },
   content: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     marginLeft: 20,
   },
   title: {

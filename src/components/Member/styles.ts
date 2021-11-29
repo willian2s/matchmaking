@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native";
-import { theme } from "../../global/styles/theme";
+import { StyleSheet } from 'react-native';
+import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   title: {
     fontFamily: theme.fonts.title700,
@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
     fontSize: 13,
   },
   status: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   bulletStatus: {
     width: 8,

@@ -1,9 +1,9 @@
-import React from "react";
-import { View, FlatList } from "react-native";
-import { Guild, GuildProps } from "../../components/Guild";
-import { ListDivider } from "../../components/ListDivider";
+import React from 'react';
+import { View, FlatList } from 'react-native';
+import { Guild, GuildProps } from '../../components/Guild';
+import { ListDivider } from '../../components/ListDivider';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 type Props = {
   handleGuildSelected: (guild: GuildProps) => void;
@@ -12,15 +12,15 @@ type Props = {
 export function Guilds({ handleGuildSelected }: Props) {
   const guilds = [
     {
-      id: "1",
-      name: "Lendarios",
-      icon: "image.png",
+      id: '1',
+      name: 'Lendarios',
+      icon: 'image.png',
       owner: true,
     },
     {
-      id: "2",
-      name: "GAMERS",
-      icon: "image.png",
+      id: '2',
+      name: 'GAMERS',
+      icon: 'image.png',
       owner: true,
     },
   ];

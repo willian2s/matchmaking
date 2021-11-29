@@ -1,5 +1,5 @@
-import React, { createContext, ReactNode, useContext, useState } from "react";
-import * as AuthSession from "expo-auth-session";
+import React, { createContext, ReactNode, useContext, useState } from 'react';
+import * as AuthSession from 'expo-auth-session';
 
 import {
   REDIRECT_URI,
@@ -7,8 +7,9 @@ import {
   RESPONSE_TYPE,
   CLIENT_ID,
   CDN_IMAGE,
-} from "../configs";
-import { api } from "../services/api";
+  BASE_URL,
+} from '../configs';
+import { api } from '../services/api';
 
 type User = {
   id: string;
@@ -45,17 +46,17 @@ function AuthProvider({ children }: AuthProviderProps) {
     try {
       setLoading(true);
 
-      const authUrl = `${api.defaults.baseURL}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
+      const authUrl = `${BASE_URL}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
 
       const { type, params } = (await AuthSession.startAsync({
         authUrl,
       })) as AuthorizationResponse;
 
-      if (type === "success") {
+      if (type === 'success') {
         api.defaults.headers.authorization = `Bearer ${params.access_token}`;
 
-        const userInfo = await api.get<User>("/users/@me");
-        const firstName = userInfo.data.username.split(" ")[0];
+        const userInfo = await api.get<User>('/users/@me');
+        const firstName = userInfo.data.username.split(' ')[0];
         userInfo.data.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
 
         setUser({
@@ -69,7 +70,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         setLoading(false);
       }
     } catch {
-      throw new Error("Não foi possivel autenticar");
+      throw new Error('Não foi possivel autenticar');
     }
   }
 

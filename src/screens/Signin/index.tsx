@@ -1,12 +1,12 @@
-import React from "react";
-import { ActivityIndicator, Alert, Image, Text, View } from "react-native";
+import React from 'react';
+import { ActivityIndicator, Alert, Image, Text, View } from 'react-native';
 
-import { useAuth } from "../../hooks/auth";
-import { Background } from "../../components/Background";
-import { ButtonIcon } from "../../components/ButtonIcon";
-import IllustrationImg from "../../assets/illustration.png";
-import { styles } from "./styles";
-import { theme } from "../../global/styles/theme";
+import { useAuth } from '../../hooks/auth';
+import { Background } from '../../components/Background';
+import { ButtonIcon } from '../../components/ButtonIcon';
+import IllustrationImg from '../../assets/illustration.png';
+import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 export function SignIn() {
   const { loading, signIn } = useAuth();
@@ -15,7 +15,9 @@ export function SignIn() {
     try {
       await signIn();
     } catch (error) {
-      Alert.alert(error);
+      if (error instanceof Error) {
+        Alert.alert(error.message);
+      }
     }
   }
 
@@ -30,12 +32,12 @@ export function SignIn() {
 
         <View style={styles.content}>
           <Text style={styles.title}>
-            Conecte-se {"\n"}e organize suas {"\n"}
+            Conecte-se {'\n'}e organize suas {'\n'}
             jogatinas
           </Text>
 
           <Text style={styles.subtitle}>
-            Crie grupos para jogar seus games {"\n"}
+            Crie grupos para jogar seus games {'\n'}
             favoritos com seus amigos
           </Text>
 
