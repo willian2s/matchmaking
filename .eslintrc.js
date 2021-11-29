@@ -31,6 +31,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'warn',
     'react/display-name': 'off',
     'react/prop-types': 'off',
     'prettier/prettier': 'error',

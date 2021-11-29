@@ -1,9 +1,9 @@
 import React from 'react';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-import { Image, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { styles } from './styles';
 
-import DiscordImg from '../../assets/discord.png';
+import DiscordSvg from '../../assets/discord.svg';
 
 type Props = RectButtonProps & {
   title: string;
@@ -13,7 +13,7 @@ export function ButtonIcon({ title, ...rest }: Props) {
   return (
     <RectButton style={styles.container} {...rest}>
       <View style={styles.iconWrapper}>
-        <Image source={DiscordImg} style={styles.icon} />
+        <DiscordSvg width={24} height={18} />
       </View>
 
       <Text style={styles.title}>{title}</Text>

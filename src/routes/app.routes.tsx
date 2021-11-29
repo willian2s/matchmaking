@@ -14,7 +14,7 @@ type AuthStackParamList = {
 
 const { Navigator, Screen } = createNativeStackNavigator<AuthStackParamList>();
 
-export function AuthRoutes() {
+export function AppRoutes() {
   return (
     <Navigator
       screenOptions={{

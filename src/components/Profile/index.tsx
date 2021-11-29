@@ -9,7 +9,7 @@ export function Profile() {
   const { user } = useAuth();
   const randomPhrasesIndex = Math.floor(Math.random() * phrases.length);
   const phrase = phrases[randomPhrasesIndex];
-  console.log('🚀 ~ phrase', phrase);
+
   return (
     <View style={styles.container}>
       <Avatar urlImage={user.avatar} />
