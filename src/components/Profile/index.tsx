@@ -3,9 +3,13 @@ import { Text, View } from "react-native";
 import { useAuth } from "../../hooks/auth";
 import { Avatar } from "../Avatar";
 import { styles } from "./styles";
+import phrases from "../../assets/phrases.json";
 
 export function Profile() {
   const { user } = useAuth();
+  const randomPhrasesIndex = Math.floor(Math.random() * phrases.length);
+  const phrase = phrases[randomPhrasesIndex];
+  console.log("🚀 ~ phrase", phrase);
   return (
     <View style={styles.container}>
       <Avatar urlImage={user.avatar} />
@@ -14,7 +18,7 @@ export function Profile() {
           <Text style={styles.greeting}>Ola,</Text>
           <Text style={styles.username}>{user.firstName}</Text>
         </View>
-        <Text style={styles.message}>Hoje é dia de vitória</Text>
+        <Text style={styles.message}>{phrase}</Text>
       </View>
     </View>
   );

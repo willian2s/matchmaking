@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     color: theme.colors.heading,
   },
   message: {
+    width: 236,
     fontFamily: theme.fonts.text400,
     color: theme.colors.highlight,
   },
