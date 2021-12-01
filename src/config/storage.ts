@@ -1,4 +1,4 @@
-const STORAGE_NAME = '@gameplay';
+const STORAGE_NAME = '@matchmaking';
 const COLLECTION_USER = `${STORAGE_NAME}:user`;
 const COLLECTION_APPOINTMENT = `${STORAGE_NAME}:appointment`;
 

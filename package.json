@@ -1,5 +1,5 @@
 {
-  "name": "gameplay",
+  "name": "matchmaking",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -49,6 +49,7 @@
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-svg": "12.1.1",
+    "react-native-uuid": "^2.0.1",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {

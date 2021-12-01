@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "gameplay",
-    "slug": "gameplay",
+    "name": "matchmaking",
+    "slug": "matchmaking",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "gameplay",
+    "scheme": "matchmaking",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

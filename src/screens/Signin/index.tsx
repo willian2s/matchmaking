@@ -3,8 +3,10 @@ import { ActivityIndicator, Alert, Image, Text, View } from 'react-native';
 
 import { useAuth } from '../../hooks/auth';
 import { Background } from '../../components/Background';
-import { ButtonIcon } from '../../components/ButtonIcon';
+import { Button } from '../../components/Button';
 import IllustrationImg from '../../assets/illustration.png';
+
+import DiscordSvg from '../../assets/discord.svg';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 
@@ -38,13 +40,18 @@ export function SignIn() {
 
           <Text style={styles.subtitle}>
             Crie grupos para jogar seus games {'\n'}
-            favoritos com seus amigos
+            favoritos com seus amigos {'\n'}
+            ou aquela call marota
           </Text>
 
           {loading ? (
             <ActivityIndicator color={theme.colors.primary} />
           ) : (
-            <ButtonIcon title="Entrar com Discord" onPress={handleSignIn} />
+            <Button
+              title="Entrar com Discord"
+              onPress={handleSignIn}
+              Icon={DiscordSvg}
+            />
           )}
         </View>
       </View>

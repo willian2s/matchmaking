@@ -17,7 +17,7 @@ type Props = {
 };
 
 export function Member({ data }: Props) {
-  const { on, primary } = theme.colors;
+  const { on, off } = theme.colors;
   const isOnline = data.status === 'online';
   return (
     <View style={styles.container}>
@@ -28,7 +28,7 @@ export function Member({ data }: Props) {
           <View
             style={[
               styles.bulletStatus,
-              { backgroundColor: isOnline ? on : primary },
+              { backgroundColor: isOnline ? on : off },
             ]}
           />
           <Text style={styles.nameStatus}>

@@ -3,6 +3,10 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  actionButton: {
     width: '100%',
     height: 56,
     backgroundColor: theme.colors.primary,
