@@ -9,6 +9,7 @@ type AppointmentCreate = {
   category: string;
   date: string;
   description: string;
+  oppointmentNotificationHour: Date;
 };
 
 export async function newAppointment({
@@ -16,6 +17,7 @@ export async function newAppointment({
   category,
   date,
   description,
+  oppointmentNotificationHour,
 }: AppointmentCreate) {
   try {
     const newAppointment = {
@@ -24,6 +26,7 @@ export async function newAppointment({
       category,
       date,
       description,
+      oppointmentNotificationHour,
     };
 
     const storage = await AsyncStorage.getItem(COLLECTION_APPOINTMENT);

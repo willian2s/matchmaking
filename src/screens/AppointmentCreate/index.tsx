@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Alert,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -12,6 +13,8 @@ import {
 } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
+import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
+import DatePicker from 'react-native-date-picker';
 
 import { Background } from '../../components/Background';
 import { Header } from '../../components/Header';
@@ -43,15 +46,32 @@ export function AppointmentCreate() {
   const [minute, setMinute] = useState('');
   const [description, setDescription] = useState('');
 
+  const [date, setDate] = useState(new Date());
+  const [myMode, setMyMode] = useState<'date' | 'time'>('date');
+  const [show, setShow] = useState(false);
+
   const navigation = useNavigation<AppointmentCreateScreenNavigationProp>();
 
   async function handleSave() {
     try {
+      if (
+        !guild ||
+        !category ||
+        !description ||
+        !day ||
+        !month ||
+        !hour ||
+        !minute
+      ) {
+        Alert.alert('Dados inválidos!', 'Revise os dados do agendamento.');
+        throw new Error('invalid_params');
+      }
       await newAppointment({
         guild,
         category,
         description,
         date: `${day}/${month} - ${hour}:${minute}h`,
+        oppointmentNotificationHour: date,
       });
       navigation.navigate('Home');
     } catch (error) {
@@ -77,6 +97,31 @@ export function AppointmentCreate() {
     setGuild(guildSelect);
     setOpenGuildsModal(false);
   }
+
+  const onChange = (event: Event, selectedDate?: Date) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+
+    setDay(currentDate.getDate().toString());
+    setMonth((currentDate.getMonth() + 1).toString());
+
+    setHour(currentDate.getHours().toString());
+    setMinute(currentDate.getMinutes().toString());
+  };
+
+  const showMode = (currentMode: string) => {
+    setShow(true);
+    setMyMode(currentMode === 'date' ? 'date' : 'time');
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
+  const showTimepicker = () => {
+    showMode('time');
+  };
 
   return (
     <KeyboardAvoidingView
@@ -122,27 +167,47 @@ export function AppointmentCreate() {
 
             <View style={styles.field}>
               <View>
-                <Text style={[styles.label, { marginBottom: 12 }]}>
-                  Dia e mês
-                </Text>
-
-                <View style={styles.column}>
-                  <SmallInput maxLength={2} onChangeText={setDay} />
-                  <Text style={styles.divider}>/</Text>
-                  <SmallInput maxLength={2} onChangeText={setMonth} />
-                </View>
+                <RectButton onPress={showDatepicker}>
+                  <Text style={[styles.label, { marginBottom: 12 }]}>
+                    Dia e mês
+                  </Text>
+                  <View style={styles.column}>
+                    <SmallInput
+                      maxLength={2}
+                      value={day}
+                      onChangeText={setDay}
+                      editable={false}
+                    />
+                    <Text style={styles.divider}>/</Text>
+                    <SmallInput
+                      maxLength={2}
+                      value={month}
+                      onChangeText={setMonth}
+                    />
+                  </View>
+                </RectButton>
               </View>
 
               <View>
-                <Text style={[styles.label, { marginBottom: 12 }]}>
-                  Hora e minuto
-                </Text>
+                <RectButton onPress={showTimepicker}>
+                  <Text style={[styles.label, { marginBottom: 12 }]}>
+                    Hora e minuto
+                  </Text>
 
-                <View style={styles.column}>
-                  <SmallInput maxLength={2} onChangeText={setHour} />
-                  <Text style={styles.divider}>:</Text>
-                  <SmallInput maxLength={2} onChangeText={setMinute} />
-                </View>
+                  <View style={styles.column}>
+                    <SmallInput
+                      maxLength={2}
+                      value={hour}
+                      onChangeText={setHour}
+                    />
+                    <Text style={styles.divider}>:</Text>
+                    <SmallInput
+                      maxLength={2}
+                      value={minute}
+                      onChangeText={setMinute}
+                    />
+                  </View>
+                </RectButton>
               </View>
             </View>
             <View style={[styles.field, { marginBottom: 12 }]}>
@@ -171,6 +236,19 @@ export function AppointmentCreate() {
         marginTop={100}>
         <Guilds handleGuildSelected={handleGuildSelect} />
       </ModalView>
+      <View>
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={myMode}
+            is24Hour={true}
+            minimumDate={new Date()}
+            display="default"
+            onChange={(event: Event, date?: Date) => onChange(event, date)}
+          />
+        )}
+      </View>
     </KeyboardAvoidingView>
   );
 }

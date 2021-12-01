@@ -17,6 +17,7 @@ export type AppointmentProps = {
   category: string;
   date: string;
   description: string;
+  oppointmentNotificationHour: Date;
 };
 
 type Props = RectButtonProps & {
@@ -48,7 +49,15 @@ export function Appointment({ data, ...rest }: Props) {
             <View style={styles.dateInfo}>
               <CalendarSvg />
 
-              <Text style={styles.date}>{data.date}</Text>
+              <Text
+                style={[
+                  styles.date,
+                  new Date(data.oppointmentNotificationHour) < new Date() && {
+                    color: theme.colors.off,
+                  },
+                ]}>
+                {data.date}
+              </Text>
             </View>
 
             <View style={styles.playersInfo}>
